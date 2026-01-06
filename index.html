@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMINOS | Chemical Distribution</title>
-  <link rel="icon" type="image/jpeg" href="logo-s.JPG">
+  <title>AMINOS | Your Trusted Sourcing Partner</title>
+  <!-- Favicon for desktop and mobile -->
+  <link rel="icon" type="image/jpeg" sizes="32x32" href="logo-s.JPG">
   <link rel="shortcut icon" type="image/jpeg" href="logo-s.JPG">
+  <link rel="apple-touch-icon" sizes="180x180" href="logo-s.JPG">
   <style>
     :root {
       --color-primary: #045582;
@@ -604,20 +606,60 @@
       .container { padding: var(--container-padding-tablet); }
       section { padding: var(--section-pad-tablet) 0; }
       .spaced-top { padding-top: calc(var(--section-pad-tablet) + 20px); }
-      h1 { font-size: 2.8rem; }
-      h2 { font-size: 2.1rem; }
+      h1 { font-size: 2.6rem; }
+      h2 { font-size: 2rem; }
+      .overline { font-size: 1.1rem; }
       .nav ul { display: none; }
       .hamburger { display: flex; }
+      .nav-actions { gap: 8px; }
+      .nav-actions .btn-secondary {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      /* Tablet: reduce logo size slightly and increase spacing between header items */
+      .brand-logo { height: 40px; }
+      .nav { padding: 0 20px; }
+      .nav-actions { gap: 18px; }
+      .hamburger { margin-left: 12px; }
     }
 
     @media (max-width: 767px) {
       .container { padding: var(--container-padding-mobile); }
-      section { padding: var(--section-pad-mobile) 0; }
-      .spaced-top { padding-top: calc(var(--section-pad-mobile) + 16px); }
-      h1 { font-size: 2.4rem; }
-      h2 { font-size: 1.9rem; }
+      section { padding: 40px 0; }
+      .spaced-top { padding-top: 40px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.7rem; }
+      .overline { font-size: 0.95rem; }
       .hero { height: 65vh; }
       .hero-actions { flex-direction: column; align-items: flex-start; }
+      .about-text { padding: 20px; }
+      .card { padding: 20px; }
+      .contact { padding: 24px; }
+
+      /* Reduce nav action button width on very small screens */
+      .nav-actions .btn-secondary,
+      .nav-actions .btn-primary,
+      .nav-actions .btn-ghost-white {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-flex;
+        justify-content: center;
+      }
+
+      /* Improve spacing between logo, request button and hamburger */
+      .nav { padding: 0 16px; }
+      .nav-actions { gap: 14px; }
+      .brand { margin-right: 12px; }
+      .hamburger { margin-left: 6px; }
+
+      /* Mobile: slightly smaller logo for better proportion */
+      .brand-logo { height: 36px; }
     }
   </style>
 </head>
