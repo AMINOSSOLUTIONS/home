@@ -364,6 +364,19 @@
       background: var(--color-light_gray, #F5F5F5);
     }
 
+    .status-dot {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--color-medium-gray);
+      color: var(--color-white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
     /* Products */
     .product-grid {
       display: grid;
@@ -664,7 +677,7 @@
             <p>Our distribution network spans certified storage hubs, climate-controlled fleets, and on-demand replenishment. Every lot is tracked with digital chain-of-custody and audited for regulatory alignment.</p>
             <div class="about-highlights">
               <div class="highlight-card">
-                <div class="pill">ISO 9001</div>
+                <div class="pill">ISO 9001<span class="status-dot">ongoing</span></div>
                 <p class="muted">Quality management across procurement and logistics.</p>
               </div>
               <div class="highlight-card">
