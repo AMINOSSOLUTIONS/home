@@ -1,0 +1,559 @@
+{
+  "design_system_name": "Corporate Professional Design System",
+  "design_context": "B2B/Enterprise landing page with focus on credibility, professionalism, and multi-division business structure",
+  
+  "color_palette": {
+    "primary": {
+      "main": "#045582",
+      "description": "Deep professional blue - used for primary CTAs, headers, and brand elements",
+      "usage": ["primary_buttons", "navigation_highlights", "section_headers", "brand_accents"]
+    },
+    "secondary": {
+      "light_blue": "#0A7CB8",
+      "dark_blue": "#023E5C",
+      "description": "Variations of primary for hover states and depth"
+    },
+    "neutral": {
+      "white": "#FFFFFF",
+      "light_gray": "#F5F5F5",
+      "medium_gray": "#E0E0E0",
+      "dark_gray": "#333333",
+      "black": "#000000",
+      "description": "Professional neutral palette for backgrounds, text, and dividers"
+    },
+    "accent": {
+      "highlight": "#FFB84D",
+      "success": "#4CAF50",
+      "description": "Optional accent colors for highlights, success states, or callouts"
+    }
+  },
+
+  "typography": {
+    "font_families": {
+      "primary": {
+        "name": "Sans-serif family (Helvetica Neue, Arial, or similar)",
+        "usage": "All body text, navigation, and general content",
+        "weights": ["300", "400", "600", "700"]
+      },
+      "headings": {
+        "name": "Same as primary (geometric sans-serif)",
+        "usage": "All headings and display text",
+        "weights": ["600", "700", "800"]
+      }
+    },
+    "scale": {
+      "h1": {
+        "size": "3.5rem",
+        "size_mobile": "2.5rem",
+        "weight": "700",
+        "line_height": "1.2",
+        "letter_spacing": "-0.02em",
+        "usage": "Hero section main heading"
+      },
+      "h2": {
+        "size": "2.5rem",
+        "size_mobile": "2rem",
+        "weight": "700",
+        "line_height": "1.3",
+        "letter_spacing": "-0.01em",
+        "usage": "Major section headers"
+      },
+      "h3": {
+        "size": "1.75rem",
+        "size_mobile": "1.5rem",
+        "weight": "600",
+        "line_height": "1.4",
+        "usage": "Subsection headers, card titles"
+      },
+      "h4": {
+        "size": "1.25rem",
+        "size_mobile": "1.125rem",
+        "weight": "600",
+        "line_height": "1.5",
+        "usage": "Small headers, emphasized text blocks"
+      },
+      "h5": {
+        "size": "1rem",
+        "weight": "600",
+        "line_height": "1.5",
+        "letter_spacing": "0.05em",
+        "text_transform": "uppercase",
+        "usage": "Section labels, category tags"
+      },
+      "body": {
+        "size": "1rem",
+        "size_mobile": "0.9375rem",
+        "weight": "400",
+        "line_height": "1.6",
+        "usage": "All paragraph text and general content"
+      },
+      "small": {
+        "size": "0.875rem",
+        "weight": "400",
+        "line_height": "1.5",
+        "usage": "Captions, meta information, footer text"
+      }
+    }
+  },
+
+  "spacing_system": {
+    "scale": "8px base unit",
+    "values": {
+      "xs": "8px",
+      "sm": "16px",
+      "md": "24px",
+      "lg": "32px",
+      "xl": "48px",
+      "2xl": "64px",
+      "3xl": "96px",
+      "4xl": "128px"
+    },
+    "section_padding": {
+      "desktop": "80px vertical, 0 horizontal (container handles horizontal)",
+      "tablet": "60px vertical",
+      "mobile": "48px vertical"
+    },
+    "container_padding": {
+      "desktop": "0 40px",
+      "tablet": "0 32px",
+      "mobile": "0 20px"
+    }
+  },
+
+  "layout_structure": {
+    "container": {
+      "max_width": "1200px",
+      "padding": "0 40px",
+      "margin": "0 auto",
+      "description": "Main content container for all sections"
+    },
+    "grid": {
+      "columns": 12,
+      "gap": "24px",
+      "gap_mobile": "16px",
+      "description": "12-column grid system for flexible layouts"
+    },
+    "breakpoints": {
+      "mobile": "0-767px",
+      "tablet": "768px-1023px",
+      "desktop": "1024px+",
+      "wide": "1400px+"
+    }
+  },
+
+  "navigation": {
+    "type": "Fixed top navigation with transparent-to-solid scroll effect",
+    "structure": {
+      "layout": "Horizontal nav bar",
+      "position": "Fixed top",
+      "height": "80px",
+      "height_scrolled": "70px",
+      "logo_position": "Left",
+      "menu_position": "Right",
+      "search_icon": true,
+      "hamburger_breakpoint": "tablet_and_below"
+    },
+    "states": {
+      "default": {
+        "background": "transparent or semi-transparent white",
+        "text_color": "dark or white depending on hero background",
+        "border": "none or subtle 1px bottom border"
+      },
+      "scrolled": {
+        "background": "solid white with shadow",
+        "text_color": "dark gray",
+        "box_shadow": "0 2px 8px rgba(0,0,0,0.1)"
+      }
+    },
+    "menu_items": {
+      "font_size": "0.9375rem",
+      "font_weight": "600",
+      "spacing": "32px between items",
+      "hover_effect": "Color change to primary blue, optional subtle underline",
+      "active_state": "Primary blue color with optional bottom border"
+    },
+    "mobile_menu": {
+      "type": "Slide-out side panel or full-screen overlay",
+      "animation": "Slide from right or fade in",
+      "close_button": "Top right X icon"
+    }
+  },
+
+  "hero_section": {
+    "type": "Full-width hero with video or image background",
+    "structure": {
+      "height": "70vh minimum, up to 100vh",
+      "height_mobile": "60vh",
+      "content_alignment": "Center or left-aligned",
+      "overlay": "Dark gradient overlay for readability (rgba(0,0,0,0.3) to rgba(0,0,0,0.5))"
+    },
+    "content": {
+      "headline": {
+        "size": "h1 scale",
+        "color": "white",
+        "max_width": "800px",
+        "animation": "Fade in and slide up on load"
+      },
+      "subheadline": {
+        "size": "1.25rem",
+        "color": "white or light gray",
+        "max_width": "600px",
+        "margin_top": "16px"
+      },
+      "cta_button": {
+        "margin_top": "32px",
+        "style": "primary button design"
+      }
+    },
+    "background": {
+      "type": "Video (mp4/webm) or high-quality image",
+      "treatment": "Subtle parallax scroll effect optional",
+      "overlay": "Dark gradient for text contrast"
+    }
+  },
+
+  "section_patterns": {
+    "values_section": {
+      "layout": "Icon + Title + Description cards in horizontal row",
+      "grid": "5 columns on desktop, 2-3 on tablet, 1-2 on mobile",
+      "card_style": {
+        "icon_size": "60px-80px",
+        "icon_style": "Simple line icons or illustrative icons in primary color or neutral",
+        "title_size": "h5",
+        "title_color": "dark gray",
+        "description_size": "small",
+        "description_color": "medium gray",
+        "spacing": "16px between icon and title, 12px between title and description",
+        "alignment": "Center aligned"
+      },
+      "background": "White or light gray",
+      "padding": "Section padding standard"
+    },
+
+    "business_divisions_section": {
+      "layout": "Grid of image cards with overlays",
+      "grid": "3 columns on desktop, 2 on tablet, 1 on mobile",
+      "card_style": {
+        "aspect_ratio": "3:2 or 4:3",
+        "image": "High-quality division representative image",
+        "overlay": {
+          "default": "Subtle dark overlay (rgba(0,0,0,0.2))",
+          "hover": "Darker overlay with slight image zoom (rgba(0,0,0,0.5))"
+        },
+        "title": {
+          "size": "h3",
+          "color": "white",
+          "position": "Bottom left or center bottom with padding",
+          "transition": "Slide up on hover optional"
+        },
+        "link": "Entire card clickable",
+        "border_radius": "4px to 8px",
+        "transition": "Transform scale(1.02) on hover, smooth 0.3s"
+      },
+      "spacing": "24px gap between cards",
+      "background": "White or light neutral"
+    },
+
+    "news_section": {
+      "layout": "Horizontal carousel or 3-column grid",
+      "card_style": {
+        "structure": "Image top, category tag, title, excerpt optional",
+        "image_aspect_ratio": "1:1 or 4:3",
+        "image_treatment": "Clean, no overlay unless hover",
+        "category_tag": {
+          "size": "0.75rem",
+          "style": "Uppercase, colored text or pill badge",
+          "color": "primary or accent color",
+          "margin_bottom": "8px"
+        },
+        "title": {
+          "size": "h4",
+          "color": "dark gray",
+          "hover": "primary blue",
+          "line_clamp": "2 lines"
+        },
+        "date": {
+          "size": "small",
+          "color": "medium gray",
+          "margin_top": "8px"
+        },
+        "hover_effect": "Subtle shadow lift, title color change",
+        "border_radius": "4px to 8px"
+      },
+      "background": "White or light gray"
+    },
+
+    "cta_banner_section": {
+      "layout": "Two-column split or single centered column",
+      "style": {
+        "background": "Solid color (primary blue, dark gray, or with background image)",
+        "text_color": "white",
+        "padding": "60px to 80px vertical",
+        "title_size": "h2 or h3",
+        "button": "Contrasting color (white outline or accent color solid)"
+      },
+      "variants": [
+        {
+          "name": "Side-by-side",
+          "structure": "Two equal-width columns, each with title, description, and button",
+          "spacing": "40px gap between columns"
+        },
+        {
+          "name": "Centered",
+          "structure": "Single centered content block, max-width 700px",
+          "alignment": "Center"
+        }
+      ]
+    }
+  },
+
+  "components": {
+    "buttons": {
+      "primary": {
+        "background": "#045582",
+        "color": "white",
+        "padding": "14px 32px",
+        "font_size": "1rem",
+        "font_weight": "600",
+        "border_radius": "4px",
+        "border": "none",
+        "hover": {
+          "background": "#0A7CB8",
+          "transform": "translateY(-2px)",
+          "box_shadow": "0 4px 12px rgba(4,85,130,0.3)"
+        },
+        "transition": "all 0.3s ease"
+      },
+      "secondary": {
+        "background": "transparent",
+        "color": "#045582",
+        "padding": "14px 32px",
+        "font_size": "1rem",
+        "font_weight": "600",
+        "border_radius": "4px",
+        "border": "2px solid #045582",
+        "hover": {
+          "background": "#045582",
+          "color": "white"
+        }
+      },
+      "ghost": {
+        "background": "transparent",
+        "color": "white",
+        "padding": "14px 32px",
+        "font_size": "1rem",
+        "font_weight": "600",
+        "border_radius": "4px",
+        "border": "2px solid white",
+        "hover": {
+          "background": "white",
+          "color": "#045582"
+        }
+      }
+    },
+
+    "cards": {
+      "default": {
+        "background": "white",
+        "border_radius": "8px",
+        "box_shadow": "0 2px 8px rgba(0,0,0,0.08)",
+        "hover_shadow": "0 8px 24px rgba(0,0,0,0.12)",
+        "padding": "24px",
+        "transition": "box-shadow 0.3s ease, transform 0.3s ease",
+        "hover_transform": "translateY(-4px)"
+      },
+      "image_card": {
+        "structure": "Image container + content container",
+        "border_radius": "8px",
+        "overflow": "hidden",
+        "image_hover": "scale(1.05) over 0.4s",
+        "content_padding": "20px"
+      }
+    },
+
+    "icons": {
+      "style": "Line-based or minimalist",
+      "size_small": "20px",
+      "size_medium": "32px",
+      "size_large": "48px",
+      "size_feature": "64px-80px",
+      "color": "primary or neutral gray",
+      "stroke_width": "1.5px to 2px"
+    },
+
+    "dividers": {
+      "thickness": "1px",
+      "color": "rgba(0,0,0,0.1)",
+      "usage": "Between sections when background colors are same"
+    }
+  },
+
+  "footer": {
+    "structure": {
+      "layout": "Multi-column layout (3-4 columns on desktop)",
+      "background": "#F5F5F5 or white with top border",
+      "padding": "60px vertical",
+      "border_top": "1px solid rgba(0,0,0,0.1)"
+    },
+    "columns": [
+      {
+        "type": "Quick Links",
+        "content": "Navigation links in vertical list",
+        "link_style": {
+          "color": "#333333",
+          "hover_color": "#045582",
+          "font_size": "0.9375rem",
+          "spacing": "12px between links"
+        }
+      },
+      {
+        "type": "Contact Information",
+        "content": "Company name, address, phone, email",
+        "text_style": {
+          "color": "#666666",
+          "font_size": "0.875rem",
+          "line_height": "1.8"
+        }
+      },
+      {
+        "type": "Logo or Brand",
+        "content": "Company logo or anniversary badge",
+        "max_width": "200px"
+      }
+    ],
+    "bottom_bar": {
+      "background": "Same as main footer or slightly darker",
+      "padding": "20px vertical",
+      "content": "Copyright text + social media icons",
+      "layout": "Flex space-between",
+      "copyright": {
+        "font_size": "0.875rem",
+        "color": "#666666"
+      },
+      "social_icons": {
+        "size": "20px",
+        "color": "#666666",
+        "hover_color": "#045582",
+        "spacing": "16px between icons"
+      }
+    }
+  },
+
+  "animations": {
+    "page_load": {
+      "hero_content": "Fade in + slide up (0.6s ease-out, 0.2s delay)",
+      "sections": "Fade in on scroll into viewport (intersection observer)"
+    },
+    "hover_states": {
+      "cards": "Lift effect (translateY -4px) + shadow increase",
+      "images": "Slight zoom (scale 1.05)",
+      "buttons": "Lift + shadow + color darken/lighten",
+      "links": "Color transition to primary"
+    },
+    "transitions": {
+      "default_duration": "0.3s",
+      "easing": "ease or ease-in-out",
+      "properties": ["transform", "box-shadow", "color", "background"]
+    },
+    "scroll_effects": {
+      "navigation": "Sticky with background change on scroll",
+      "parallax": "Optional subtle parallax on hero background (0.5 speed)"
+    }
+  },
+
+  "responsive_behavior": {
+    "mobile_first": false,
+    "approach": "Desktop-first with responsive scaling",
+    "breakpoint_adjustments": {
+      "tablet": {
+        "grid_columns": "Reduce to 2-3 columns",
+        "font_sizes": "Scale down 10-20%",
+        "padding": "Reduce section padding by 25%",
+        "navigation": "Switch to hamburger menu"
+      },
+      "mobile": {
+        "grid_columns": "Single column or 2 columns max",
+        "font_sizes": "Further scale down, prioritize readability",
+        "padding": "Reduce to mobile spacing values",
+        "hero_height": "Reduce to 60vh",
+        "images": "Full width with proper aspect ratio"
+      }
+    },
+    "touch_targets": {
+      "minimum_size": "44px x 44px",
+      "spacing": "Adequate spacing between interactive elements on mobile"
+    }
+  },
+
+  "design_principles": {
+    "visual_hierarchy": {
+      "primary": "Clear focal points with size, color, and spacing",
+      "secondary": "Supporting elements subdued but accessible",
+      "tertiary": "Background information clearly separated"
+    },
+    "white_space": {
+      "philosophy": "Generous white space for breathing room and focus",
+      "application": "Minimum 40-60px between major sections, 20-30px within component groups"
+    },
+    "contrast": {
+      "text_on_backgrounds": "Minimum WCAG AA standard (4.5:1 for body, 3:1 for large text)",
+      "interactive_elements": "Clear distinction through color, borders, or shadows"
+    },
+    "consistency": {
+      "spacing": "Use consistent spacing scale throughout",
+      "borders": "Consistent border radius values",
+      "shadows": "2-3 shadow levels maximum (subtle, medium, prominent)"
+    },
+    "professionalism": {
+      "tone": "Corporate, trustworthy, established",
+      "imagery": "High-quality, relevant, professional photography",
+      "copy": "Clear, concise, value-focused"
+    }
+  },
+
+  "content_patterns": {
+    "section_headers": {
+      "structure": "Small overline label (h5) + Large heading (h2) + Optional description",
+      "overline": {
+        "style": "Uppercase, tracked out letters, primary or medium gray color",
+        "margin_bottom": "12px"
+      },
+      "heading": {
+        "max_width": "700px",
+        "margin_bottom": "16px"
+      },
+      "description": {
+        "max_width": "600px",
+        "color": "medium gray",
+        "size": "1.125rem"
+      },
+      "alignment": "Center or left depending on section"
+    },
+    "image_usage": {
+      "quality": "High resolution, optimized for web",
+      "aspect_ratios": ["16:9 for hero", "4:3 or 3:2 for cards", "1:1 for news/blog"],
+      "treatment": "Clean, professional, minimal filters",
+      "overlays": "Dark gradients for text legibility when needed"
+    }
+  },
+
+  "accessibility": {
+    "color_contrast": "Minimum WCAG AA compliance",
+    "focus_states": "Clear visible focus indicators on all interactive elements",
+    "alt_text": "Descriptive alt text for all images",
+    "semantic_html": "Proper heading hierarchy, landmark regions, semantic tags",
+    "keyboard_navigation": "Full keyboard accessibility for all interactive elements",
+    "aria_labels": "Appropriate ARIA labels for icons and complex interactions"
+  },
+
+  "implementation_notes": {
+    "framework_agnostic": "Design system works with any modern framework (React, Vue, vanilla JS)",
+    "css_approach": "Utility-first (Tailwind) or component-based (CSS Modules, Styled Components)",
+    "performance": {
+      "images": "Lazy loading, modern formats (WebP with fallbacks), responsive images",
+      "animations": "CSS transforms and opacity for performance, avoid layout thrashing",
+      "fonts": "Preload critical fonts, font-display: swap"
+    },
+    "scalability": "Component-based architecture, reusable patterns, design tokens for easy theming"
+  }
+}

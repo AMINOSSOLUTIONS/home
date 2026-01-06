@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMINOS | Chemical Distribution</title>
+  <style>
+    :root {
+      --color-primary: #045582;
+      --color-primary-hover: #0A7CB8;
+      --color-secondary-dark: #023E5C;
+      --color-accent: #FFB84D;
+      --color-success: #4CAF50;
+      --color-white: #FFFFFF;
+      --color-light-gray: #F5F5F5;
+      --color-medium-gray: #E0E0E0;
+      --color-dark-gray: #333333;
+      --color-black: #000000;
+
+      --font-family: "Helvetica Neue", Arial, sans-serif;
+
+      --container-max: 1200px;
+      --container-padding-desktop: 0 40px;
+      --container-padding-tablet: 0 32px;
+      --container-padding-mobile: 0 20px;
+
+      --section-pad-desktop: 80px;
+      --section-pad-tablet: 60px;
+      --section-pad-mobile: 48px;
+
+      --shadow-soft: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-strong: 0 8px 24px rgba(0,0,0,0.12);
+      --shadow-nav: 0 2px 8px rgba(0,0,0,0.1);
+
+      --transition-fast: 0.2s ease;
+      --transition-default: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--color-dark-gray);
+      background: var(--color-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--transition-default);
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: var(--container-padding-desktop);
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all var(--transition-default);
+      background: var(--color-white);
+      box-shadow: var(--shadow-nav);
+    }
+
+    .nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      transition: all var(--transition-default);
+      backdrop-filter: blur(6px);
+    }
+
+    header.scrolled .nav {
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-name {
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--color-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: all var(--transition-default);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 14px 32px;
+      box-shadow: 0 4px 12px rgba(4,85,130,0.3);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-primary);
+      padding: 14px 32px;
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .btn-ghost-white {
+      background: transparent;
+      color: var(--color-white);
+      padding: 14px 32px;
+      border: 2px solid var(--color-white);
+    }
+
+    .btn-ghost-white:hover,
+    .btn-ghost-white:focus-visible {
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
+
+    .hamburger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      border: 1px solid var(--color-medium-gray);
+      background: var(--color-white);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      transition: all var(--transition-default);
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--color-dark-gray);
+      transition: transform var(--transition-default);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 320px;
+      height: 100%;
+      background: var(--color-white);
+      box-shadow: -4px 0 16px rgba(0,0,0,0.1);
+      padding: 80px 24px 24px;
+      transition: right var(--transition-default);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .mobile-menu a {
+      font-weight: 600;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-medium-gray);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 78vh;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      color: var(--color-white);
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+      z-index: 1;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.9);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding-top: 120px;
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 16px;
+      color: #e8f0f7;
+      max-width: 600px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    /* Section base */
+    section {
+      padding: var(--section-pad-desktop) 0;
+      scroll-margin-top: 110px;
+    }
+
+    .spaced-top {
+      padding-top: calc(var(--section-pad-desktop) + 24px);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .overline {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      max-width: 640px;
+      margin: 0 auto;
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    /* About */
+    .about-grid {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      background: var(--color-white);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-text h3 {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .highlight-card {
+      padding: 16px;
+      border: 1px solid var(--color-medium-gray);
+      border-radius: 8px;
+      background: var(--color-light_gray, #F5F5F5);
+    }
+
+    /* Products */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--color-white);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      transition: box-shadow var(--transition-default), transform var(--transition-default);
+    }
+
+    .card:hover,
+    .card:focus-within {
+      box-shadow: var(--shadow-strong);
+      transform: translateY(-4px);
+    }
+
+    .card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(4, 85, 130, 0.08);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* AI Capabilities */
+    .ai-wrapper {
+      background: linear-gradient(135deg, rgba(4,85,130,0.08), rgba(2,62,92,0.08));
+      border: 1px solid rgba(4,85,130,0.1);
+      border-radius: 12px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      align-items: center;
+    }
+
+    .ai-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ai-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--color-white);
+      border-radius: 10px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .ai-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(4,85,130,0.08);
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--color-light_gray);
+      border-radius: 12px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--color-medium-gray);
+      font: inherit;
+      transition: border var(--transition-default), box-shadow var(--transition-default);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(4,85,130,0.15);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-light_gray);
+      border-top: 1px solid rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      padding: 60px 0 20px;
+    }
+
+    .footer-col h5 {
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--color-dark-gray);
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-meta {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding: 20px 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--color-white);
+      border: 1px solid var(--color-medium-gray);
+      color: #666;
+    }
+
+    .social a:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    /* Utilities */
+    .muted {
+      color: #666;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--color-success);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1023px) {
+      .container { padding: var(--container-padding-tablet); }
+      section { padding: var(--section-pad-tablet) 0; }
+      .spaced-top { padding-top: calc(var(--section-pad-tablet) + 20px); }
+      h1 { font-size: 2.8rem; }
+      h2 { font-size: 2.1rem; }
+      .nav ul { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 767px) {
+      .container { padding: var(--container-padding-mobile); }
+      section { padding: var(--section-pad-mobile) 0; }
+      .spaced-top { padding-top: calc(var(--section-pad-mobile) + 16px); }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.9rem; }
+      .hero { height: 65vh; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header aria-label="Main navigation">
+    <div class="nav container">
+      <a class="brand" href="#top">
+        <img src="logo.png" alt="Company logo" class="brand-logo">
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#ai">AI Capabilities</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#contact">Request Supply</a>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" aria-label="Mobile menu">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#ai">AI Capabilities</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#contact">Talk to Supply Chain</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <video src="video.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <div class="container hero-content">
+        <p class="overline">Global Chemical Distribution</p>
+        <h1>Reliable supply, compliant handling, and AI-driven logistics.</h1>
+        <p>We connect manufacturers, labs, and industrial leaders with certified chemical products, backed by rigorous quality assurance and predictive supply intelligence.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Speak with an expert</a>
+          <a class="btn btn-ghost-white" href="#products">Browse portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <p class="overline">About us</p>
+          <h2>Trusted partner for regulated chemical supply.</h2>
+          <p class="section-desc">From base solvents to specialty reagents, we deliver traceability, safety-first warehousing, and global compliance for every shipment.</p>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <h3>Certified operations with end-to-end visibility.</h3>
+            <p>Our distribution network spans certified storage hubs, climate-controlled fleets, and on-demand replenishment. Every lot is tracked with digital chain-of-custody and audited for regulatory alignment.</p>
+            <div class="about-highlights">
+              <div class="highlight-card">
+                <div class="pill">ISO 9001</div>
+                <p class="muted">Quality management across procurement and logistics.</p>
+              </div>
+              <div class="highlight-card">
+                <div class="pill">HAZMAT Ready</div>
+                <p class="muted">Trained teams for hazardous classifications and SDS control.</p>
+              </div>
+              <div class="highlight-card">
+                <div class="pill">Cold Chain</div>
+                <p class="muted">Temperature-stable lanes with live telemetry.</p>
+              </div>
+              <div class="highlight-card">
+                <div class="pill">Audit Trails</div>
+                <p class="muted">Lot-level provenance and compliance reporting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="spaced-top" style="background: var(--color-light_gray);">
+      <div class="container">
+        <div class="section-header">
+          <p class="overline">Products</p>
+          <h2>Coverage across core and specialty chemistries.</h2>
+          <p class="section-desc">Curated portfolio with MSDS, COA, and REACH documentation ready for your procurement teams.</p>
+        </div>
+        <div class="product-grid reveal">
+          <div class="card">
+            <h4>Amine Series</h4>
+            <p class="muted">Ethanolamines (MEA, DEA, TEA), polyether amine, alkanol amines, ethyleneamines (EDA, DETA) and piperazine.</p>
+          </div>
+          <div class="card">
+            <h4>Specialty Chemicals</h4>
+            <p class="muted">Organometallic compounds, fluorine compounds, bromine compounds, and functional monomers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="container">
+        <div class="section-header">
+          <p class="overline">AI Capabilities</p>
+          <h2>Predictive supply and compliance intelligence.</h2>
+          <p class="section-desc">Our AI stack forecasts demand, flags risk, and keeps shipments compliant across jurisdictions.</p>
+        </div>
+        <div class="ai-wrapper reveal">
+          <div class="ai-list">
+            <div class="ai-item">
+              <div class="ai-icon">ML</div>
+              <div>
+                <h4>Demand forecasting</h4>
+                <p class="muted">Multi-factor demand signals drive proactive replenishment and lower safety stock.</p>
+              </div>
+            </div>
+            <div class="ai-item">
+              <div class="ai-icon">QC</div>
+              <div>
+                <h4>Quality anomaly alerts</h4>
+                <p class="muted">Computer vision and sensor analytics spot deviations before they exit the dock.</p>
+              </div>
+            </div>
+            <div class="ai-item">
+              <div class="ai-icon">CO</div>
+              <div>
+                <h4>Compliance automation</h4>
+                <p class="muted">Automated SDS validation, REACH checks, and shipping paperwork generation.</p>
+              </div>
+            </div>
+            <div class="ai-item">
+              <div class="ai-icon">RT</div>
+              <div>
+                <h4>Real-time telemetry</h4>
+                <p class="muted">IoT feeds monitor temperature, shock, and geo-fencing with escalation workflows.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="height: 100%; background: var(--color-white);">
+            <div class="badge" style="margin-bottom: 12px;">New</div>
+            <h3 style="margin-bottom: 12px;">AI Control Tower</h3>
+            <p class="muted" style="margin-bottom: 16px;">Unified console visualizes inbound and outbound flows, risk scores, and service-level adherence across every lane.</p>
+            <ul class="muted" style="padding-left: 18px; line-height: 1.7;">
+              <li>Scenario simulation for constrained supply.</li>
+              <li>Carbon impact and route optimization.</li>
+              <li>Exceptions routed to compliance teams instantly.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="background: var(--color-light_gray);">
+      <div class="container">
+        <div class="section-header">
+          <p class="overline">Contact us</p>
+          <h2>Connect with AMINOS Solutions.</h2>
+          <p class="section-desc">Share your requirements and our team will advise on the right products and supply model for your business.</p>
+        </div>
+        <div class="contact reveal">
+          <div>
+            <h3 style="margin-bottom: 12px;">Company details</h3>
+            <p class="muted">AMINOS Solutions Pte Ltd</p>
+            <div style="margin-top: 16px;">
+              <p class="muted"><strong>WhatsApp:</strong> +65 8915 3754</p>
+              <p class="muted"><strong>Email:</strong> admin@aminos.biz</p>
+            </div>
+          </div>
+          <form>
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="email">Work email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+            <div>
+              <label for="message">Requirements</label>
+              <textarea id="message" name="message" placeholder="Tell us about your products and timelines"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h5>Quick links</h5>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#ai">AI Capabilities</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <p class="muted">AMINOS Solutions Pte Ltd</p>
+        <p class="muted">WhatsApp: +65 8915 3754</p>
+        <p class="muted">Email: admin@aminos.biz</p>
+      </div>
+    </div>
+    <div class="container footer-meta">
+      <p>© 2026 AMINOS. All rights reserved.</p>
+      <div class="social" aria-label="Social media">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">X</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('header');
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const revealItems = document.querySelectorAll('.reveal');
+
+    function onScroll() {
+      const scrolled = window.scrollY > 60;
+      header.classList.toggle('scrolled', scrolled);
+    }
+
+    function toggleMenu() {
+      mobileMenu.classList.toggle('open');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
