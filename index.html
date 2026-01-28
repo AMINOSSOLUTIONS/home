@@ -939,7 +939,7 @@
               <p class="muted"><strong>Email:</strong> admin@aminos.biz</p>
             </div>
           </div>
-          <form>
+          <form action="https://formsubmit.co/admin@aminos.biz" method="POST">
             <div>
               <label for="name">Full name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -952,6 +952,8 @@
               <label for="message">Requirements</label>
               <textarea id="message" name="message" placeholder="Tell us about your products and timelines"></textarea>
             </div>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you">
             <button class="btn btn-primary" type="submit">Submit request</button>
           </form>
         </div>
@@ -1023,4 +1025,5 @@
   </script>
 </body>
 </html>
+
 
